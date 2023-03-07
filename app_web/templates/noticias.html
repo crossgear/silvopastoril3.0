@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="content">
+
+    <section id="noticias" class="px-md-4 px-xl-5">
+        <h3 class="titulo_seccion px-md-5">NOTICIAS DEL CONGRESO</h3>
+        <div class="text-justify text-light px-md-5">
+            
+            {% for x in posts%}
+            <p class="h3"><a href="http://">{{x.titulo}}</a></p>
+            <p>{{x.cuerpo}}</p>
+            {% endfor %}
+            
+
+
+        </div>
+    </section>
+
+
+</div>
+
+{% endblock %}

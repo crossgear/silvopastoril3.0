@@ -1,0 +1,40 @@
+{% extends 'dashboard.html' %}
+
+{% block h1 %}Lista de Usuarios{% endblock %}
+
+{% block content %}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Is SuperUser?</th>
+            <th scope="col">Modificar?</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        {% for x in usuarios %}
+        
+        <tr>
+            <th scope="row">{{x.id}}</th>
+            <td>{{x.username}}</td>
+            <td>{{x.email}}</td>
+            <td>{% if x.is_superuser == 0 %} No {%else%} Si {% endif %}</td>
+            <td><a href=""><i class="fa-solid fa-pen-to-square"></i></a>
+                <a href="http://"><i class="fa-solid fa-trash"></i></a>
+            </td>
+        </tr>
+        
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="col-12">
+    <a class="btn btn-primary" href="/dashboard/usuarios/add" role="button">Agregar</a>
+</div>
+
+{% endblock %}

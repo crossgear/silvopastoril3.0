@@ -1,0 +1,39 @@
+{% extends 'dashboard.html' %}
+
+{% block h1 %}Agregar Usuarios{% endblock %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+
+<div class="alert alert-warning" role="alert">
+    {{message}}
+</div>
+
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<form action="/dashboard/register" method="POST">
+    <div class="mb-3">
+        <label for="exampleInputUser1" class="form-label">Usuario</label>
+        <input type="text" class="form-control" id="exampleInputUser1" name="username">
+      </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" name="email">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="cpassword">
+      </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+
+{% endblock %}

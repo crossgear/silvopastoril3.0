@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+
+{% block title %}Inscripciones{% endblock %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+
+<div class="alert alert-warning" role="alert">
+    {{message}}
+</div>
+
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<h1 class="text-center mt-4">Complete el Formulario</h1>
+
+    <div class="content-form col-6 mt-5 mb-5">
+        <form class="row g-3" action="/inscripcion" method="POST">
+
+            <div class="col-12">
+                <label for="name" class="form-label">Nombre Y Apellido*</label>
+                <input type="text" class="form-control" name="name">
+            </div>
+
+            <div class="col-md-6">
+                <label for="tipo_documento" class="form-label">Tipo Documento*</label>
+                <select name="tipo_documento" class="form-select">
+                    <option value="identificacion">Identificación*</option>
+                    <option value="pasaporte">Pasaporte</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label for="documento" class="form-label">Documento*</label>
+                <input inputmode="numeric" oninput="this.value = this.value.replace(/\D+/g, '')" class="form-control" name="documento">
+            </div>
+
+            <div class="col-md-6">
+                <label for="pais" class="form-label">País de Residencia*</label>
+                <input type="text" class="form-control" name="pais">
+            </div>
+
+            <div class="col-md-6">
+                <label for="ciudad" class="form-label">Ciudad de Residencia*</label>
+                <input type="text" class="form-control" name="ciudad">
+            </div>
+
+            <div class="col-md-6">
+                <label for="email" class="form-label">Email*</label>
+                <input type="email" class="form-control" name="email">
+            </div>
+
+            <div class="col-md-6">
+                <label for="telefono" class="form-label">Telefono*</label>
+                <input inputmode="numeric" oninput="this.value = this.value.replace(/\D+/g, '')" class="form-control" name="telefono">
+            </div>
+
+            <div class="col-md-6">
+                <label for="institucion" class="form-label">Institución*</label>
+                <input type="text" class="form-control" name="institucion">
+            </div>
+
+            <div class="col-md-6">
+                <label for="ocupacion" class="form-label">Ocupación*</label>
+                <select class="form-select" name="ocupacion" onchange="">
+                    <option value="Estudiante Nacional" selected="selected">Estudiante Nacional</option>
+                    <option value="Estudiante Extranjero">Estudiante Extranjero</option>
+                    <option value="Profesional Nacional">Profesional Nacional</option>
+                    <option value="Profesional Extranjero">Profesional Extranjero</option>
+                </select>
+            </div>
+
+            <div class="col-12">
+                <label class="form-label" for="forma_pago">
+                    Seleccione una Forma de Pago*
+                </label>
+
+                <select class="form-select" name="forma_pago">
+                    <option value="bancard" selected="selected">Bancard - Tarjetas de crédito/débito (Acepta Visa,
+                        Mastercard, American Express, Discover, Diners Club y Credifielco.)</option>
+                    <option value="procard">Procard - Tarjetas de crédito/débito (Acepta Visa,
+                        Mastercard, Credicard y Unica)</option>
+                    <option value="pago_express">Pago Express</option>
+                    <option value="practipago">Practipago</option>
+                    <option value="banco">Cuenta Bancaria</option>
+                    <option value="tigo">Tigo Money</option>
+                </select>
+
+            </div>
+
+            <div class="col-md-6">
+                <label for="ocupacion" class="form-label">Tipo de Participación*</label>
+                <select class="form-select" id="participacion" name="participacion" onchange="HiddenCheck()">
+                    <option value="Asistente" selected="selected">Asistente</option>
+                    <option value="Ponente con Poster">Ponente con Póster</option>
+                    <option value="Ponente Oral">Ponente Oral</option>
+                    <option value="Conferencia Magistral">Conferencia Magistral</option>
+                </select>
+            </div>
+
+            <div class="form-check1" hidden>
+                <label for="ocupacion" class="form-label">Area de su Ponencia*</label>
+                <select class="form-select" name="ponencia" onchange="HiddenCheck()">
+                    <option value="Asistente" selected="selected">Ganadería Sostenible, Biodiversidad, Ambiente Y
+                        Cambio Climático</option>
+                    <option value="Ponente con Poster">Producción Simultánea de Bienes Pecuarios Y
+                        Forestales</option>
+                    <option value="Ponente Oral">Socioeconomía en Sistemas
+                        Silvopastoriles</option>
+                    <option value="Conferencia Magistral">Escenarios Productivos en Sistemas Silvopastoriles
+                        (testimonios de productores)</option>
+                </select>
+            </div>
+
+            <div class="form-check2" hidden>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="ingles">
+                    <label class="form-check-label" for="gridCheck">
+                        ¿Requiere servicio de traducción para las charlas dictadas en
+                        inglés?
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Comentario: (anote aquí si tiene alguna
+                    restricción alimentaria
+                    (alergia alimenticia, entre otros) o de movilidad (Dificultad de desplazamiento, entre
+                    otros)</label>
+                <textarea class="form-control" name="comentario" rows="3"></textarea>
+            </div>
+
+            <label class="form-check-label" for="defaultCheck1">Complete los siguientes campos sólo si desea Factura
+                Legal</label><br>
+
+            <div class="form-group" id="fact_inf">
+                <label for="exampleFormControlInput1"><span>Nombre o Razón Social</span></label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="nombre_razon_social"><br>
+                <label for="exampleFormControlInput1"><span>RUC</span></label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="ruc">
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Enviar</button>
+                <button type="reset" class="btn btn-primary" style="margin-top: 10px;">Limpiar</button>
+            </div>
+        </form>
+
+    </div>
+
+    <script>
+        function HiddenCheck() {
+            var x = document.getElementById("participacion");
+            if (x.options.selectedIndex === 0) {
+                document.getElementsByClassName("form-check1")[0].hidden = true;
+                document.getElementsByClassName("form-check2")[0].hidden = true;
+            }
+            else {
+                document.getElementsByClassName("form-check1")[0].hidden = false;
+                document.getElementsByClassName("form-check2")[0].hidden = false;
+            }
+        }
+
+    </script>
+
+
+{% endblock %}

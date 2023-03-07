@@ -1,0 +1,18 @@
+{% extends 'dashboard.html' %}
+
+{% block h1 %}Posteo de Noticias{% endblock %}
+
+{% block content %}
+
+{% for x in posts%}
+<p class="h3"><a href="/dashboard/post_edit/{{x.id}}">{{x.titulo}}</a></p>
+<p>{{x.cuerpo}}</p>
+{% endfor %}
+
+<div class="col-12">
+    <a class="btn btn-primary" href="/dashboard/post_add" role="button">Agregar</a>
+</div>
+
+
+
+{% endblock %}

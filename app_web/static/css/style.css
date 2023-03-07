@@ -1,0 +1,264 @@
+@import url(galeria.css);
+@import url(form.css);
+
+html {
+    margin: 0 auto;
+}
+
+body {
+    background-color: #182e08;
+    background: url('../img/fondo.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+
+/*-------------------CONTAINER---------------*/
+
+.container{
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 50%;
+    margin-top: 150px;
+    margin-bottom: 120px;
+}
+
+section {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+h3.titulo_seccion {
+    color: #97bf72;
+    font-size: 21px;
+    font-weight: bolder;
+}
+
+table{
+    color:white !important;
+    min-height: 100vh;
+    padding-top: 200px;
+}
+
+#direccion h3 {
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+#sede img {
+    width: 100%;
+    padding: 30px;
+}
+
+.map-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+    margin-bottom: 30px;
+    z-index: 1;
+}
+
+.map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+/*------------------NEWS------------------*/
+
+
+/*-----------LOGOS & AUSPICIES----------*/
+
+.logos {
+    display: flex;
+}
+
+.conter {
+    position: relative;
+    padding: 12%;
+    display: inline;
+}
+
+.overlay {
+    position: absolute;
+    top: 20%;
+    bottom: 20%;
+    left: 20%;
+    right: 0;
+    width: 59%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #51BA08;
+}
+
+.conter:hover .overlay {
+    opacity: 1;
+}
+
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.auspices{
+    margin-top: 50px;
+}
+
+.auspices img{
+    width: 15%;
+    height: 15%;
+    padding-left: 30px;
+}
+
+.auspices h1{
+    color: #97bf72;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.organize{
+    margin-top: 50px;
+}
+
+.organize img{
+    width: 15%;
+    height: 15%;
+    padding-left: 30px;
+}
+
+.organize h1{
+    color: #97bf72;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.auspices .ot{
+    width:100%;
+    background:linear-gradient(to top, #97bf72,#97bf72) no-repeat bottom;
+    background-size: 100% 1px;
+}
+
+.organize .ot{
+    width:100%;
+    background:linear-gradient(to top, #97bf72,#97bf72) no-repeat bottom;
+    background-size: 100% 1px;
+}
+
+
+
+/*------------Navbar--------------*/
+
+.navbar-nav,
+.dropdown-item,
+.dropdown-menu,
+.dropdown-menu a {
+    background-color: rgb(247, 255, 247, 0.25);
+}
+
+.navbar-nav a:hover {
+    background-color: rgb(247, 255, 247, 0.4);
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+}
+
+.dropdown-menu {
+    padding: 0;
+}
+
+.dropdown-menu a {
+    padding: 8px;
+    color: white;
+    font-size: 12px;
+}
+
+.dropdown-menu a:hover {
+    color: white;
+}
+
+/*----------footer---------*/
+
+footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #182e08;
+    color: white;
+    text-align: left;
+    margin-top: auto;
+}
+
+footer section{
+    margin: 0;
+}
+
+footer ul {
+    border-left: 3px solid #97bf72;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer a:hover {
+    background-color: rgb(247, 255, 247, 0.4);
+}
+
+footer h2 {
+    padding-left: 10px;
+    font-size: 1.5rem;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 15px;
+}
+
+footer .logo-icon {
+    width: 25px;
+    height: 25px;
+}
+
+/*Flecha para hacer la pagina hacia arriba*/
+.ir-arriba {
+    display:none;
+    background-repeat: no-repeat;
+    font-size:30px;
+    color:#182e08;
+    cursor:pointer;
+    position: fixed;
+    bottom:20px;
+    right:20px;
+    z-index: 2;
+}
+
+.ir-arriba:hover{
+    color: #51BA08;
+}

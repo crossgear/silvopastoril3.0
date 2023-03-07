@@ -1,0 +1,26 @@
+{% extends 'dashboard.html' %}
+
+{% block h1 %}Editar Noticias{% endblock %}
+
+{% block content %}
+
+<form action="/dashboard/update_post/{{post.id}}" method="POST">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Titulo</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="titulo" value="{{post.titulo}}">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Cuerpo</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="cuerpo" >{{post.cuerpo}}</textarea>
+    </div>
+
+
+    <div class="botones">
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+        <button type="reset" class="btn btn-primary">Descartar</button>
+        <a class="btn btn-primary" href="/dashboard/post" role="button">Atras</a>
+    </div>
+
+</form>
+
+{% endblock %}
